@@ -4,7 +4,7 @@ import { CategoryType, Category, VideosData, VideoType } from '../../../Api/inde
 import { Link, useNavigate } from 'react-router-dom';
 
 type Props = {
-  handleCategory:any,
+  handleCategory:(tag: CategoryType) => void,
   cateogry:CategoryType[],
   categoryAll:string,
   onDisplay:VideoType[]
@@ -14,7 +14,9 @@ const Home: React.FC<Props> = ({ handleCategory,cateogry,categoryAll,onDisplay }
  
   const navigate = useNavigate()
 
-
+  const selectedVideo =(id:number)=>{
+    navigate(`/video-selected/${id}`)
+  }
 
   return (
     <div className="homeContainer" id="homeContainer">
@@ -42,7 +44,9 @@ const Home: React.FC<Props> = ({ handleCategory,cateogry,categoryAll,onDisplay }
       <div className="videoContainer" id='videoContainerId'>
         {onDisplay.map((video: VideoType) => {
           return (
-              <Video video={video} key={video.id} />
+            <div key={video.id} onClick={()=>selectedVideo(video.id)}>
+              <Video video={video}  />
+              </div>
           )
         })}
       </div>

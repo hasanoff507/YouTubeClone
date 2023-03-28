@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Link } from "react-router-dom";
+import React, { useState, useEffect, useRef } from 'react';
+import { Link, useLocation } from "react-router-dom";
 import { AiOutlineHome } from 'react-icons/ai'
 import { BsCollectionPlay } from 'react-icons/bs'
 import { RiFlashlightLine } from 'react-icons/ri'
@@ -22,7 +22,10 @@ import EmojiObjectsOutlinedIcon from '@mui/icons-material/EmojiObjectsOutlined';
 type Props = {};
 
 const Sidebar: React.FC<Props> = ({ }: Props) => {
-    const [selectedId, setSelectedId] = useState("Home")
+    const [selectedId, setSelectedId] = useState<string | null>(null);
+    const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
+    const location = useLocation();
+    const sidebarRef = useRef<HTMLDivElement>(null);
 
     const sideBarData = {
         mainTabs: [
@@ -200,31 +203,41 @@ const Sidebar: React.FC<Props> = ({ }: Props) => {
             },
         ]
     }
+    useEffect(() => {
+        const miniSidebarElement = document.getElementById('miniSidebar') as HTMLDivElement;
+        if (!location.pathname.startsWith('/video-selected')) {
+          miniSidebarElement.style.display = 'block';
+        } else {
+          miniSidebarElement.style.display = 'none';
+        }
+      }, [location.pathname]);
+
+     
 
     return (
         <>
             <div className="sidebarSection close" id='sidebarContainer' >
-                <div className="miniSidebar" id='miniSidebar'>
+                <div className="miniSidebar" id='miniSidebar' >
                     {sideBarData.mainTabs.map((tab, i) => {
                         return (
-                            <Link to={tab.path}>
-                                <div key={i} className={`miniSidebarTab ${tab.icon === selectedId && 'active'}`} onClick={() => setSelectedId(tab.icon)}>
+                            <Link to={tab.path} key={i}>
+                                <div className={`miniSidebarTab ${tab.icon === selectedId && 'active'}`} onClick={() => setSelectedId(tab.icon)}>
                                     <span className='material-symbols-rounded'>{tab.iconDispley}</span>
-                                    <p style={{color:'white'}}>{tab.head}</p>
+                                    <p style={{ color: 'white' }}>{tab.head}</p>
                                 </div>
                             </Link>
                         )
                     })}
                 </div>
-                <div className="sidebarContainer" id='sidebarContainer'>
+                <div className="sidebarContainer" id='sidebarContainer' >
                     <div className="sideBarTabs">
                         <div className="tabContainer">
                             {sideBarData.mainTabs.map((tab, i) => {
                                 return (
-                                    <Link to={tab.path}>
-                                        <div key={i} className={`sidebarTab ${tab.icon === selectedId && 'active'}`} onClick={() => setSelectedId(tab.icon)}>
+                                    <Link to={tab.path} key={i}>
+                                        <div className={`sidebarTab ${tab.icon === selectedId && 'active'}`} onClick={() => setSelectedId(tab.icon)}>
                                             <span className='material-symbols-rounded'>{tab.iconDispley}</span>
-                                            <p style={{color:'white'}}>{tab.head}</p>
+                                            <p style={{ color: 'white' }}>{tab.head}</p>
                                         </div>
                                     </Link>
                                 )

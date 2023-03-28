@@ -20,7 +20,6 @@ import AnnouncementOutlinedIcon from '@mui/icons-material/AnnouncementOutlined';
 import { VideoType } from '../../../Api';
 import { useNavigate,useLocation } from 'react-router-dom';
 type Props = {
-    // handleSearch:   React.FormEventHandler<HTMLFormElement> | undefined
     searchQuery: string,
     setSearchQuery: Dispatch<SetStateAction<string>>
     setOnDisplay: React.Dispatch<React.SetStateAction<VideoType[]>>

@@ -5,6 +5,7 @@ import Home from "./Home";
 import Sidebar from "./Sidebar";
 import { BrowserRouter as Router, Routes, Route, } from 'react-router-dom'
 import Search from "../pages/search";
+import SelectedVideo from "../pages/selected";
 
 type Props = {};
 
@@ -34,7 +35,8 @@ const Componets: React.FC<Props> = ({ }: Props) => {
         <Sidebar />
         <Routes>
           <Route path="/" element={<Home handleCategory={handleCategory} cateogry={cateogry} categoryAll={categoryAll} onDisplay={onDisplay} />} />
-            <Route path="/search-results" element={<Search onDisplay={onDisplay} />} />
+          <Route path="/search-results" element={<Search onDisplay={onDisplay} />} />
+          <Route path="/video-selected/:id" element={<SelectedVideo onDisplay={onDisplay} handleCategory={handleCategory} cateogry={cateogry} categoryAll={categoryAll}/>}/>
         </Routes>
       </Router>
     </div>
