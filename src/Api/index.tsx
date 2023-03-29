@@ -19,7 +19,7 @@ export interface VideoType {
     duration: string;
     views: number;
     uploadTime: string;
-    // video:any;
+    subscribers:number;
 }
 
 export const VideosData: VideoType[] = [
@@ -34,6 +34,7 @@ export const VideosData: VideoType[] = [
         duration: '6:00',
         views: 112312,
         uploadTime: '4 day',
+        subscribers:723654
     },
     {
         id: 2,
@@ -46,6 +47,7 @@ export const VideosData: VideoType[] = [
         duration: '13:29',
         views: 856980,
         uploadTime: '1 year ago',
+        subscribers:612787
     },
     {
         id: 3,
@@ -58,6 +60,7 @@ export const VideosData: VideoType[] = [
         duration: '7:09:06',
         views: 2487234,
         uploadTime: '1 year ago',
+        subscribers:2342352
     },
     {
         id: 4,
@@ -70,6 +73,7 @@ export const VideosData: VideoType[] = [
         duration: '1:09:06',
         views: 487234,
         uploadTime: '1 month ago',
+        subscribers:127360
     },
     {
         id: 5,
@@ -82,35 +86,40 @@ export const VideosData: VideoType[] = [
         duration: '4:59',
         views: 276856,
         uploadTime: '3 years ago',
+        subscribers:723570
     }
 ]
 
 export interface CategoryType {
     id: number,
-    category:string,
+    category: string,
 }
 
 export const Category: CategoryType[] = [
     {
-        id:1,
-        category:'All'
+        id: 1,
+        category: 'All'
     },
     {
-        id:2,
-        category:'Final'
+        id: 2,
+        category: 'Final'
     },
     {
-        id:3,
-        category:'JavaScript'
+        id: 3,
+        category: 'JavaScript'
     },
     {
-        id:4,
-        category:'Music'
+        id: 4,
+        category: 'Music'
     },
     {
-        id:5,
-        category:'how did you make the devices'
+        id: 5,
+        category: 'how did you make the devices'
     },
-    
-    
+
+
 ]
+
+
+
+

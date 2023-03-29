@@ -28,6 +28,7 @@ const Componets: React.FC<Props> = ({ }: Props) => {
 
 
 
+
   return (
     <div>
       <Router>
@@ -36,7 +37,7 @@ const Componets: React.FC<Props> = ({ }: Props) => {
         <Routes>
           <Route path="/" element={<Home handleCategory={handleCategory} cateogry={cateogry} categoryAll={categoryAll} onDisplay={onDisplay} />} />
           <Route path="/search-results" element={<Search onDisplay={onDisplay} />} />
-          <Route path="/video-selected/:id" element={<SelectedVideo onDisplay={onDisplay} handleCategory={handleCategory} cateogry={cateogry} categoryAll={categoryAll}/>}/>
+          <Route path="/video-selected/:id" element={<SelectedVideo />}/>
         </Routes>
       </Router>
     </div>
