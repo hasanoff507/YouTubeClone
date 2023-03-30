@@ -114,7 +114,10 @@ const Navbar: React.FC<Props> = ({ searchQuery, setSearchQuery, setOnDisplay, vi
                             <span></span>
                         </div>
                     </div>
+                    <a href="/" style={{marginTop:'2px'}}>
+
                     <img src={WhiteLogo} alt="Youtube Logo" title='Youtube' />
+                    </a>
                 </div>
                 <form className="searchContainer" onSubmit={handleSearch} >
                     <div className="searchBox">
