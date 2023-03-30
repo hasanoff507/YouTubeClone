@@ -55,25 +55,27 @@ const SelectedVideo: React.FC<Props> = ({ }: Props) => {
     }
     return (
         <div className="selectVideo" id="videoContainersID">
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '15px', }}>
-                <div className="video-type-left">
-                    <video style={{ width: '880px', maxWidth: '100%', height: '480px', maxHeight: '100%' }} controls autoPlay prefix="das" loop muted >
-                        <source src={defaultVideo} type="video/mp4" />
-                    </video>
+            <main>
+                <div className="main__video">
+                    <div className="main__video-container">
+                        <video style={{ width: '880px', maxWidth: '100%' }} controls autoPlay  loop muted >
+                            <source src={defaultVideo} type="video/mp4" />
+                        </video>
+                    </div>
                     <div >
                         {selectedVideo ? (
-                            <div style={{ marginLeft: '12px' }}>
+                            <div >
                                 <h2 style={{ fontFamily: 'Roboto' }}>{selectedVideo.title}</h2>
                                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                                    <div style={{ display: 'flex', alignItems: 'center',gap:'10px' }}>
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                                         <div>
-                                            <img style={{borderRadius:'50%' , width:'50px'}} src={selectedVideo.logo} alt="" />
+                                            <img style={{ borderRadius: '50%', width: '50px' }} src={selectedVideo.logo} alt="" />
                                         </div>
                                         <div>
                                             <p>{selectedVideo.channel}</p>
                                             <p> {countViews(selectedVideo.subscribers)} </p>
                                         </div>
-                                        <div>
+                                        <div >
                                             <button>Subscribe</button>
                                         </div>
                                     </div>
@@ -87,23 +89,24 @@ const SelectedVideo: React.FC<Props> = ({ }: Props) => {
                         )}
                     </div>
                 </div>
-
-                {/* video type right */}
-                <div className="video-type-left" >
-                    <div style={{ display: 'flex', alignItems: 'center', width: '500px', overflow: 'auto', marginBottom: '20px' }}>
-                        <ScrollingCarousel>
-                            {cateogry.map((item) => {
-                                return (
-                                    <div
-                                        className={`categoryTabVideo ${categoryAll === item.category && 'active'}`}
-                                        key={item.id}
-                                        onClick={() => selectVideoCategory(item)}>
-                                        {item.category}
-                                    </div>
-                                );
-                            })}
-                        </ScrollingCarousel>
+                <aside className="aside">
+                    <div className="aside__top-container">
+                        <div style={{ display: 'flex', alignItems: 'center', width: '500px', overflow: 'auto', marginBottom: '20px' }}>
+                            <ScrollingCarousel>
+                                {cateogry.map((item) => {
+                                    return (
+                                        <div
+                                            className={`categoryTabVideo ${categoryAll === item.category && 'active'}`}
+                                            key={item.id}
+                                            onClick={() => selectVideoCategory(item)}>
+                                            {item.category}
+                                        </div>
+                                    );
+                                })}
+                            </ScrollingCarousel>
+                        </div>
                     </div>
+                    {/* ydkjasgdjhkafhjgsdjhfgasjkdmjfhgakdjhklkjg */}
                     <div>
                         {
                             onDisplay.map((item) => {
@@ -131,10 +134,10 @@ const SelectedVideo: React.FC<Props> = ({ }: Props) => {
                             })
                         }
                     </div>
-                </div>
-
-            </div>
+                </aside>
+            </main>
         </div>
+
     );
 };
 

@@ -6,7 +6,6 @@ import Sidebar from "./Sidebar";
 import { BrowserRouter as Router, Routes, Route, } from 'react-router-dom'
 import Search from "../pages/search";
 import SelectedVideo from "../pages/selected";
-
 type Props = {};
 
 const Componets: React.FC<Props> = ({ }: Props) => {
