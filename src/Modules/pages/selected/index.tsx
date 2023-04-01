@@ -51,10 +51,9 @@ const SelectedVideo: React.FC<Props> = ({ }: Props) => {
         }
         setOnDisplay(videoData.filter((video) => video.category === tag.category));
     };
-
+ 
     const onVideoClick = (id: number) => {
         navigate(`/video-selected/${id}`)
-        // eslint-disable-next-line no-restricted-globals
         window.location.reload()
     }
     return (
@@ -88,10 +87,10 @@ const SelectedVideo: React.FC<Props> = ({ }: Props) => {
                                             <button ><ThumbUpOffAltIcon sx={{color:'white'}}/> <span></span> <ThumbDownOffAltIcon sx={{color:'white'}}/> </button>
                                         </div>
                                         <div className="share_button">
-                                            <button><CgMailForward style={{color:'white'}}/>  Share</button>
+                                            <button style={{color:'white'}}><CgMailForward style={{color:'white'}}/>  Share</button>
                                         </div>
                                         <div className="download_button">
-                                            <button><FileDownloadOutlinedIcon sx={{color:'white'}}/>  Download</button>
+                                            <button style={{color:'white'}}><FileDownloadOutlinedIcon sx={{color:'white'}}/>  Download</button>
                                         </div>
                                         <div className="more_button">
                                             <MoreHorizOutlinedIcon sx={{marginTop:'5px', color:'white'}}/>

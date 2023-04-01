@@ -15,7 +15,6 @@ const Componets: React.FC<Props> = ({ }: Props) => {
   const [onDisplay, setOnDisplay] = useState<VideoType[]>(videoData);
   const [searchQuery, setSearchQuery] = useState<string>('');
 
-
   const handleCategory = (tag: CategoryType): void => {
     setCategoryAll(tag.category);
     if (tag.category === 'All') {
@@ -25,7 +24,7 @@ const Componets: React.FC<Props> = ({ }: Props) => {
     setOnDisplay(videoData.filter((video) => video.category === tag.category));
   };
 
-
+  
 
 
   return (
@@ -36,7 +35,7 @@ const Componets: React.FC<Props> = ({ }: Props) => {
         <Routes>
           <Route path="/" element={<Home handleCategory={handleCategory} cateogry={cateogry} categoryAll={categoryAll} onDisplay={onDisplay} />} />
           <Route path="/search-results" element={<Search onDisplay={onDisplay} />} />
-          <Route path="/video-selected/:id" element={<SelectedVideo />}/>
+          <Route path="/video-selected/:id" element={<SelectedVideo />} />
         </Routes>
       </Router>
     </div>
