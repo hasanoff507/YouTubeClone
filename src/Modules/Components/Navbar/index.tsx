@@ -130,9 +130,7 @@ const Navbar: React.FC<Props> = ({ searchQuery, setSearchQuery, setOnDisplay, vi
                         <input onChange={handleSearchTerm} type="text" placeholder='Search' value={searchQuery} style={{ borderTopLeftRadius: '20px', borderBottomLeftRadius: '20px' }} />
                     </div>
                     <button type='submit' className="searchBtn" style={{ borderTopRightRadius: '20px', borderBottomRightRadius: '20px' }}>
-                        {/* <span className='material-symbols-rounded'> */}
                         <AiOutlineSearch style={{ width: '24px', height: '39px', color: 'white' }} />
-                        {/* </span> */}
                     </button>
                     <div className="searchMic">
                         <span className='material-symbols-rounded active'>

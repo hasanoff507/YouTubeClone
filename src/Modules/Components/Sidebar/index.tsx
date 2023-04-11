@@ -212,7 +212,6 @@ const Sidebar: React.FC<Props> = ({ }: Props) => {
         }
       }, [location.pathname]);
 
-     
 
     return (
         <>
